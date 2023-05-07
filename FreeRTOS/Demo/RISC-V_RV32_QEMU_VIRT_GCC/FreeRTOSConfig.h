@@ -55,7 +55,8 @@
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 80 * 1024 ) )
 #define configMAX_TASK_NAME_LEN			( 12 )
 #define configUSE_TRACE_FACILITY		1
-#define configUSE_16_BIT_TICKS			0
+// #define configUSE_16_BIT_TICKS			0
+#define configTICK_TYPE_WIDTH_IN_BITS    TICK_TYPE_WIDTH_64_BITS
 #define configIDLE_SHOULD_YIELD			0
 #define configUSE_MUTEXES				1
 #define configUSE_RECURSIVE_MUTEXES		1
@@ -65,9 +66,10 @@
 #define configUSE_COUNTING_SEMAPHORES	1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
 
-#define configMAX_PRIORITIES			( 9UL )
+#define configMAX_PRIORITIES			( 15UL )
 #define configQUEUE_REGISTRY_SIZE		10
 #define configSUPPORT_STATIC_ALLOCATION	1
+#define configSUPPORT_DYNAMIC_ALLOCATION 1
 
 /* Timer related defines. */
 #define configUSE_TIMERS				1
@@ -109,7 +111,7 @@ FreeRTOS/Source/tasks.c for limitations. */
  * time. */
 #define configRUN_ADDITIONAL_TESTS				1
 
-void vAssertCalled( const char *pcFileName, uint32_t ulLine );
+void vAssertCalled( const char *pcFileName, unsigned long ulLine );
 #define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ );
 
 /* The test that checks the trigger level on stream buffers requires an

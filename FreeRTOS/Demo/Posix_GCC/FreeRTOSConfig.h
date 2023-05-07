@@ -47,7 +47,7 @@
 #define configTOTAL_HEAP_SIZE                      ( ( size_t ) ( 65 * 1024 ) )
 #define configMAX_TASK_NAME_LEN                    ( 12 )
 #define configUSE_TRACE_FACILITY                   1
-#define configUSE_16_BIT_TICKS                     0
+// #define configUSE_16_BIT_TICKS                     0
 #define configIDLE_SHOULD_YIELD                    1
 #define configUSE_MUTEXES                          1
 #define configCHECK_FOR_STACK_OVERFLOW             0
@@ -59,6 +59,7 @@
 #define configUSE_QUEUE_SETS                       1
 #define configUSE_TASK_NOTIFICATIONS               1
 #define configSUPPORT_STATIC_ALLOCATION            1
+#define configTICK_TYPE_WIDTH_IN_BITS    TICK_TYPE_WIDTH_64_BITS
 
 /* Software timer related configuration options.  The maximum possible task
  * priority is configMAX_PRIORITIES - 1.  The priority of the timer task is
@@ -69,7 +70,7 @@
 #define configTIMER_QUEUE_LENGTH                   20
 #define configTIMER_TASK_STACK_DEPTH               ( configMINIMAL_STACK_SIZE * 2 )
 
-#define configMAX_PRIORITIES                       ( 7 )
+#define configMAX_PRIORITIES                       ( /*7*/15 )
 
 /* Run time stats gathering configuration options. */
 unsigned long ulGetRunTimeCounterValue( void ); /* Prototype of function that returns run time counter. */
@@ -146,10 +147,10 @@ extern void vAssertCalled( const char * const pcFileName,
  * errors are present. */
     #define configASSERT( x )    if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
 
-    #define configUSE_MALLOC_FAILED_HOOK    1
+    // #define configUSE_MALLOC_FAILED_HOOK    1
 
 /* Include the FreeRTOS+Trace FreeRTOS trace macro definitions. */
-    #include "trcRecorder.h"
+    // #include "trcRecorder.h"
 #endif /* if ( projCOVERAGE_TEST == 1 ) */
 
 /* networking definitions */

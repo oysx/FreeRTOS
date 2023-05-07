@@ -1,4 +1,4 @@
-CROSS   = riscv64-unknown-elf-
+CROSS   = riscv-nuclei-elf-
 CC      = $(CROSS)gcc
 OBJCOPY = $(CROSS)objcopy
 ARCH    = $(CROSS)ar
@@ -33,12 +33,6 @@ else
 endif
 
 SRCS = main.c main_blinky.c riscv-virt.c ns16550.c \
-	$(DEMO_SOURCE_DIR)/EventGroupsDemo.c \
-	$(DEMO_SOURCE_DIR)/TaskNotify.c \
-	$(DEMO_SOURCE_DIR)/TimerDemo.c \
-	$(DEMO_SOURCE_DIR)/blocktim.c \
-	$(DEMO_SOURCE_DIR)/dynamic.c \
-	$(DEMO_SOURCE_DIR)/recmutex.c \
 	$(RTOS_SOURCE_DIR)/event_groups.c \
 	$(RTOS_SOURCE_DIR)/list.c \
 	$(RTOS_SOURCE_DIR)/queue.c \
